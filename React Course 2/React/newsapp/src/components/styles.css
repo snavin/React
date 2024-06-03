@@ -1,0 +1,41 @@
+.news-card-container {
+    margin-bottom: 10px; /* Add margin bottom for spacing between cards */
+    width: 100%; /* Ensure the card takes full width */
+  }
+  
+  .card {
+    border: 1px solid #dee2e6; /* Add border to the card */
+    border-radius: 4px; /* Add border-radius for rounded corners */
+    overflow: hidden; /* Ensure the image doesn't overflow */
+  }
+  
+  .card-img-top {
+    width: 100%; /* Make the image take full width */
+    height: 200px; /* Set a fixed height for the image */
+    object-fit: cover; /* Ensure the image covers the entire space */
+  }
+  
+  .card-body {
+    padding: 10px; /* Add padding to the card body */
+  }
+  
+  .card-title {
+    margin-bottom: 5px; /* Add margin bottom to the card title */
+  }
+  
+  .card-text {
+    margin-bottom: 5px; /* Add margin bottom to the card text */
+  }
+  
+  .btn-primary {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  
+  .btn-primary:hover {
+    color: #fff;
+    background-color: #0056b3;
+    border-color: #0056b3;
+  }
+  

@@ -1,0 +1,269 @@
+Extensions to be installed
+---------------------
+Thunder Client
+
+
+React JS
+-----------
+website - https://create-react-app.dev/
+   npm install create-react-app
+   npx create-react-app myapp
+
+if the above command is not working (npx create-react-app myapp)
+
+--> npm uninstall -g create-react-app
+--> npx create-react-app myapp
+
+--> To run the code -->  npm start 
+
+few words in JSX
+------
+htmlFor
+className
+tabIndex
+
+Shortcuts due to the ES extension
+--------------
+rfc - function based component - type rfc and enter
+impt - importing the prop types in the function component - impt and enter
+ptc - proptype string
+imrs - to import react and use state
+usestate - to define a line of the useState
+
+
+
+
+
+React.Fragment
+---------------
+In react you can return only one element or else you can use the JSX Fragment <> </> to create and return multiple elements
+
+class Columns extends React.Component {
+  render() {
+    return (
+      <React.Fragment>
+        <td>Hello</td>
+        <td>World</td>
+      </React.Fragment>
+    );
+  }
+}
+
+OR
+
+class Columns extends React.Component {
+  render() {
+    return (
+      <>
+        <td>Hello</td>
+        <td>World</td>
+      </>
+    );
+  }
+}
+
+to run a module -- > npm ./module.mjs
+
+prop - it stands for properties
+-------
+
+1) Props are arguments passed into React components.
+2) Props are passed to components via HTML attributes.
+
+Passing of data
+----------------
+3)Props are also how you pass data from one component to another, as parameters.
+
+
+*) proptypes as an object 
+   -- to set it a string
+   -- to set it required
+
+Navbar.propTypes = {
+    title:PropTypes.string.isRequired,
+    aboutText:PropTypes.string
+}
+
+*)Proptypes as default so that we may not pass values from the app.js or calling js
+
+Navbar.defaultProps = {
+    title: "Text Utils",
+    aboutText:"About US"
+}
+
+*) Proptype as an object - pass from app component to the Navbar component
+
+function App() {
+  const titlesInfo = {title: "Navin",title1: "Navin12345"};
+  return (
+    <>
+      {/* <Navbar title="Navin" aboutText="About Text"></Navbar> */}
+     <Navbar title={titlesInfo}></Navbar>
+    </>
+  );
+}
+
+--  {props.title.title}
+
+state
+---------
+
+1) The state object is where you store property values that belong to the component.
+2) When the state object changes, the component re-renders.
+
+
+hooks {useState} - Before 16.8 version, the class components were used using the this.variable to set a value 
+but now it has been changed using the hooks in the function component.
+
+first import the state as below
+---------------------------------
+import React,{useState} from 'react'
+
+const [text,setText] = useState("Enter text here"); 
+  - Here the text option is the variable we are using also known as a "State"
+  - the setText is the updation function we would be using when we need to update the default value which is "useState("Enter text here")"
+  - useState("Enter text here") ==> this is the default value for the variable "text".
+
+State example of a form
+--------------------------
+
+1)import the useState hooks
+2)using the format of the variable,updation function we can set the useState of any required variable
+3)Added the onClick in the button element and updated the text wherever required using the setText - onClick function also works 
+
+
+handleUppClick 
+--------------
+export default function TextForm(props) {
+    const [text,setText] = useState("Enter text here");
+    //setText("Updated text");
+
+    const handleUppClick = ()=>
+    {
+        console.log("UpperCase was clicked");
+        setText("You have clicked the handleUppClick");
+    }
+
+    const changeText = (event)=>
+    {
+        console.log("ChangeText was clicked");
+        setText(event.target.value)
+    }
+
+  return (
+    <div>
+        <h1>{props.heading}</h1>
+        <div className="mb-3">
+        {/* <label for="myBox" class="form-label">Example textarea</label> */}
+        <textarea className="form-control" value={text} onChange={changeText} id="myBox" rows="8"></textarea>
+        </div>
+        <button className="btn btn-primary" onClick={handleUppClick}>Convert to UpperCase</button>
+    </div>
+  )
+}
+
+event handler in react 
+------------------------
+
+export default function TextForm(props) {
+   
+Event handler example - changeText 
+---------------------
+    const changeText = (event)=>
+    {
+        console.log("ChangeText was clicked");
+        setText(event.target.value)
+    }
+
+  return (
+    <div>
+        <h1>{props.heading}</h1>
+        <div className="mb-3">
+        {/* <label for="myBox" class="form-label">Example textarea</label> */}
+
+   {/*Event handler */}
+
+        <textarea className="form-control" value={text} onChange={changeText} id="myBox" rows="8"></textarea>
+        </div>
+        <button className="btn btn-primary" onClick={handleUppClick}>Convert to UpperCase</button>
+    </div>
+  )
+}
+
+using an object in states through the function component
+--------------------------------------------------------
+// using an object 
+        //const [java,setText] = useState("Enter text here");
+        //const text = {java: "hi", pthon:"hello I am ptyg"};
+        //setText("Updated text");
+
+
+ <div>
+        <h1>{props.heading}</h1>
+        <div className="mb-3">
+        {/* <label for="myBox" class="form-label">Example textarea</label> */}
+        <textarea className="form-control" value={text.pthon} onChange={changeText} id="myBox" rows="8"></textarea>
+        </div>
+        <button className="btn btn-primary" onClick={handleUppClick}>Convert to UpperCase</button>
+    </div>
+
+
+List of States
+----------
+style={myStyle}
+onChange={changeText}
+onClick={handleUppClick}
+
+Class Based Component
+--------------------------
+Shortcuts due to the ES extension
+--------------
+rcep 
+----
+class based component in the js with proptypes included
+
+
+Methods in React Component LifeCycle
+------------------------------------
+render() - in class based component
+componentDidMount()
+componentDidUpdate()
+componentWillUnmount()
+
+React Hooks
+--------
+useState - to change the state of a text by using useState or setText
+useEffect - this will work in componentdidmount
+useContext - global used function without going thru the prop drill
+useRef - 
+useNavigate
+
+Deployment doc for github pages
+--------
+types github pages
+https://create-react-app.dev/docs/deployment/
+
+
+To start the backedn
+-------
+
+Redux
+------
+Instead of using prop drilling we can use the redux store as we did for the context api(useContext)
+Actions - Its a plain object that has an intention to cause change
+Reducers -it uses the action to determine the change
+
+Installation libraries
+
+npm i redux react-redux redux-thunk
+
+useSelector Hook
+useDispatch Hook
+
+
+
+
+
+
+
+
